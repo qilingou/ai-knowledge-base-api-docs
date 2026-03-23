@@ -79,7 +79,7 @@
 | Topic | string | ✅ | 论文主题 |
 | KeyWords | string[] | ❌ | 必须出现的关键词（不要把主题也放入） |
 | KeyWordRelation | string | ❌ | 关键词关系：`and` 或 `or`，默认 `and` |
-| TopN | int | ❌ | 每页数量，默认10 |
+| TopN | int | ❌ | 展示数量，默认10 |
 | Grade | string[] | ❌ | 期刊级别 |
 | Major | string[] | ❌ | 学科领域 |
 | JournyNames | string[] | ❌ | 指定期刊 |
@@ -111,7 +111,7 @@
 | 参数 | 类型 | 必填 | 说明 |
 |------|------|------|------|
 | Topic | string | ✅ | 搜索内容 |
-| TopN | int | ❌ | 每页数量，默认10 |
+| TopN | int | ❌ | 展示数量，默认10 |
 | Filter | string | ❌ | 过滤条件 |
 
 **响应额外字段：** `paper_id`, `authors`, `abstract`, `pdf_url`, `subjects`, `published`
@@ -134,7 +134,7 @@
 | 参数 | 类型 | 必填 | 说明 |
 |------|------|------|------|
 | Topic | string | ✅ | 搜索内容 |
-| TopN | int | ❌ | 每页数量，默认10 |
+| TopN | int | ❌ | 展示数量，默认10 |
 | Filter | string | ❌ | 过滤条件 |
 
 **响应额外字段：** `researchMethodAbstract`, `IVSelectionReasons`, `robustnessCheck`
@@ -424,7 +424,7 @@ POST /QueryJournalArticleForPaperMethod
 | `Type` | 期刊类型 | `[1]`=提供代码数据, `[2]`=有征稿启事 |
 | `BeginTime` / `StartDate` | 开始日期 | `"2023-01-01"` |
 | `EndTime` / `EndDate` | 结束日期 | `"2025-12-31"` |
-| `TopN` / `TakeNum` | 返回数量 | `10` |
+| `TopN` / `TakeNum` | 展示数量 | `10` |
 
 ---
 
