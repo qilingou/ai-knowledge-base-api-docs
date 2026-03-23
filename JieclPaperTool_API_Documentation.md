@@ -7,6 +7,7 @@
 - **服务名称**: JieclPaperTool（科研平台私有知识库插件）
 - **版本**: v1
 - **Base URL**: `https://ai1.jiecl.com/api/CozePlugin`
+- **字符编码**: `UTF-8`
 
 ---
 
@@ -60,7 +61,6 @@
   "KeyWords": ["数字经济", "绿色技术创新", "碳排放"],
   "KeyWordRelation": "and",
   "TopN": 10,
-  "PageIndex": 1,
   "Grade": ["CSSCI"],
   "Major": ["经济学"],
   "JournyNames": [],
@@ -77,7 +77,6 @@
 | 参数 | 类型 | 必填 | 说明 |
 |------|------|------|------|
 | Topic | string | ✅ | 论文主题 |
-| PageIndex | int | ✅ | 当前页数 |
 | KeyWords | string[] | ❌ | 必须出现的关键词（不要把主题也放入） |
 | KeyWordRelation | string | ❌ | 关键词关系：`and` 或 `or`，默认 `and` |
 | TopN | int | ❌ | 每页数量，默认10 |
@@ -103,8 +102,7 @@
 // 请求
 {
   "Topic": "carbon emissions and economic growth",
-  "TopN": 10,
-  "PageIndex": 1
+  "TopN": 10
 }
 ```
 
@@ -114,7 +112,6 @@
 |------|------|------|------|
 | Topic | string | ✅ | 搜索内容 |
 | TopN | int | ❌ | 每页数量，默认10 |
-| PageIndex | int | ❌ | 页码，默认1 |
 | Filter | string | ❌ | 过滤条件 |
 
 **响应额外字段：** `paper_id`, `authors`, `abstract`, `pdf_url`, `subjects`, `published`
@@ -128,8 +125,7 @@
 // 请求
 {
   "Topic": "双重差分法的工具变量选择",
-  "TopN": 10,
-  "PageIndex": 1
+  "TopN": 10
 }
 ```
 
@@ -139,7 +135,6 @@
 |------|------|------|------|
 | Topic | string | ✅ | 搜索内容 |
 | TopN | int | ❌ | 每页数量，默认10 |
-| PageIndex | int | ❌ | 页码，默认1 |
 | Filter | string | ❌ | 过滤条件 |
 
 **响应额外字段：** `researchMethodAbstract`, `IVSelectionReasons`, `robustnessCheck`
@@ -392,8 +387,7 @@ POST /GetPaperRelevanceAndRecommendedPapers
   "Topic": "新质生产力对碳排放的影响",
   "KeyWords": ["新质生产力", "碳排放"],
   "KeyWordRelation": "and",
-  "TopN": 20,
-  "PageIndex": 1
+  "TopN": 20
 }
 // 响应中包含 SnapshotId，例如 "2035261418055536640"
 
@@ -431,7 +425,6 @@ POST /QueryJournalArticleForPaperMethod
 | `BeginTime` / `StartDate` | 开始日期 | `"2023-01-01"` |
 | `EndTime` / `EndDate` | 结束日期 | `"2025-12-31"` |
 | `TopN` / `TakeNum` | 返回数量 | `10` |
-| `PageIndex` | 页码 | `1` |
 
 ---
 
